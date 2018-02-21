@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>simtk</groupId>
+    <artifactId>openmm</artifactId>
+    <version>7.2.0</version>
+    <packaging>jar</packaging>
+    <name>OpenMM Java Wrappers</name>
+    <description>Java wrappers for the OpenMM API.</description>
+    <dependencies>
+        <dependency>
+            <groupId>net.java.dev.jna</groupId>
+            <artifactId>jna</artifactId>
+            <version>${jna.version}</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <jna.version>4.1.0</jna.version>
+        <!-- Default locations for deploying the website, snapshot location and
+        release location. These can be over-ridden by a developer's
+        settings.xml -->
+        <website.repo>file:website</website.repo>
+        <snapshot.repo>file:lib</snapshot.repo>
+        <release.repo>file:release</release.repo>
+    </properties>
+    <build>
+        <defaultGoal>deploy</defaultGoal>
+    </build>
+    <distributionManagement>
+        <downloadUrl>https://github.com/mjschnie/openmm-java-wrappers</downloadUrl>
+        <site>
+            <id>Website</id>
+            <name>Java OpenMM Wrapper Website Location</name>
+            <url>${website.repo}</url>
+        </site>
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>Snapshots</id>
+            <name>Local Maven SNAPSHOT Repository</name>
+            <url>${snapshot.repo}</url>
+        </snapshotRepository>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>Releases</id>
+            <name>Local Maven Release Repository</name>
+            <url>${release.repo}</url>
+        </repository>
+    </distributionManagement>
+</project>
