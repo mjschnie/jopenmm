@@ -9,8 +9,16 @@ The OpenMM module contains Java Wrappers for the OpenMM API automatically genera
 
 Generation of the Java OpenMM Wrappers using Jnaerator
 
-Ensure that the latest version of OpenMM is installed on your machine. This can be done, for example, by using the Anaconda command: conda install -c omnia openmm
-The following Jnaerator command can then be used: java -jar jnaerator-0.12-shaded.jar config.jnaerator
+Ensure that the latest version of OpenMM is installed on your machine. This can be done, for example, by using the Anaconda command: 
+
+conda install -c omnia openmm
+
+
+The following Jnaerator command can then be used: 
+
+java -jar jnaerator-0.12-shaded.jar config.jnaerator
+
+
 where the contents of "config.jnaerator" are given by:
 
 -limitComments
