@@ -1,7 +1,8 @@
 # Java Wrappers for the OpenMM C API.
 Java Wrappers for the OpenMM C API automatically generated using Jnaerator.
 
-Author: Hernan V Bernabe Email: hernan-bernabe@uiowa.edu
+Author: Hernan V Bernabe
+Email: hernan-bernabe@uiowa.edu
 
 ## Introduction	
 This project contains Java Wrappers for the OpenMM C API, which are automatically generated using Jnaerator.
