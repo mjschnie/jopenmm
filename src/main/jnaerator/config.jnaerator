@@ -15,9 +15,9 @@
 
 -library OpenMM
 
-/usr/local/openmm/include/OpenMMCWrapper.h
+../include/OpenMMCWrapper.h
 
 -library AmoebaOpenMM
 
-/usr/local/openmm/include/AmoebaOpenMMCWrapper.h
+../include/AmoebaOpenMMCWrapper.h
 
