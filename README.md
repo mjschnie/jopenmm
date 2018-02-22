@@ -36,10 +36,10 @@ where the contents of "config.jnaerator" are given by:
 	-package simtk.openMM
 
 	-library OpenMM
-	/Applications/anaconda3/pkgs/opnemm-7.1.1-py36_0/include/OpenMMCWrapper.h
+	../include/OpenMMCWrapper.h
 
 	-library AmoebaOpenMM
-	/Applications/anaconda3/pkgs/openmm-7.1.1-py36_0/include/AmoebaOpenMMCWrapper.h
+	../include/AmoebaOpenMMCWrapper.h
 
 The configuration file contains the various flags needed to set up generation of the wrappers as well as information about where to locate the OpenMM X header files. Some Important flags include:
 
@@ -53,7 +53,7 @@ The configuration file contains the various flags needed to set up generation of
 
 * -package sets the java package where all the generated output will reside (our package is called simtk.openmm)
 
-* -library sets the name of the output library. Importantly, after the library flag you must specifiy (ie set the path to) where the CWrapper.h files are located. There are two libraries we use to generate our wrapper classes for OpenMM.
+* -library sets the name of the output library. Importantly, after the library flag you must specifiy (i.e. set the path to) C API header files.
 
 For additional documentation on flag options available to edit the configuration file visit Jnaerator Wiki:
 https://github.com/nativelibs4java/JNAerator/wiki/Command-Line-Options-And-Environment-Variables
