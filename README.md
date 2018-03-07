@@ -31,7 +31,7 @@ where the contents of "config.jnaerator" are given by:
 
 	-mode Jar
 
-	-jar openmm-7.1.1.jar
+	-jar openmm-7.2.0.jar
 
 	-package simtk.openMM
 
@@ -62,10 +62,10 @@ https://github.com/nativelibs4java/JNAerator/wiki/Command-Line-Options-And-Envir
 
 To use the OpenMM Java Wrappers, two environment variables need to be set (e.g. in .bash_profile) in order to invoke the OpenMM libraries from within the Java program. First, the JNA_LIBRARY_PATH variable needs to point to the location of the lib subdirectory of the OpenMM installation package:
 
-	export JNA_LIBRARY_PATH="/Applications/anaconda3/pkgs/openmm-7.1.1-py36_0/lib"
+	export JNA_LIBRARY_PATH="/Applications/anaconda3/pkgs/openmm-7.2.0-py36_3/lib"
 
 Second, the OPENMM_PLUGIN_DIR variable needs to point to the location of the plugins subdirectory of the OpenMM installation package:
 
-	export OPENMM_PLUGINS_DIR="/Applications/anaconda3/pkgs/openmm-7.1.1-py36_0/lib/plugins"
+	export OPENMM_PLUGINS_DIR="/Applications/anaconda3/pkgs/openmm-7.2.0-py36_3/lib/plugins"
 	
 

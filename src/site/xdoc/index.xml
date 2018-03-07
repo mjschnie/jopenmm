@@ -36,15 +36,15 @@
 
 -mode Jar
 
--jar openmm-7.1.1.jar
+-jar openmm-7.2.0.jar
 
 -package simtk.openmm
 
 -library OpenMM
-/Applications/anaconda3/pkgs/openmm-7.1.1-py36_0/include/OpenMMCWrapper.h
+/Applications/anaconda3/pkgs/openmm-7.2.0-py36_3/include/OpenMMCWrapper.h
 
 -library AmoebaOpenMM
-/Applications/anaconda3/pkgs/openmm-7.1.1-py36_0/include/AmoebaOpenMMCWrapper.h
+/Applications/anaconda3/pkgs/openmm-7.2.0-py36_3/include/AmoebaOpenMMCWrapper.h
                 </source>
                 <p>
                     The configuration file contains the various flags needed to set up generation of the wrappers as
@@ -82,12 +82,12 @@
                     First, the JNA_LIBRARY_PATH variable needs to point to the location of the lib
                     subdirectory of the OpenMM installation package.
                 </p>
-                <source>export JNA_LIBRARY_PATH="/Applications/anaconda3/pkgs/openmm-7.1.1-py36_0/lib"</source>
+                <source>export JNA_LIBRARY_PATH="/Applications/anaconda3/pkgs/openmm-7.2.0-py36_3/lib"</source>
                 <p>
                     Second, the OPENMM_PLUGIN_DIR variable needs to point to the location of the plugins subdirectory of
                     of the OpenMM installation package. 
                 </p>
-                <source>export OPENMM_PLUGIN_DIR="/Applications/anaconda3/pkgs/openmm-7.1.1-py36_0/lib/plugins"</source>
+                <source>export OPENMM_PLUGIN_DIR="/Applications/anaconda3/pkgs/openmm-7.2.0-py36_3/lib/plugins"</source>
                 <source>To Do.</source>
             </subsection>
             <subsection name="Using FFX-OpenMM">
