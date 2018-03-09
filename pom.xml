@@ -25,9 +25,19 @@
         <website.repo>file:website</website.repo>
         <snapshot.repo>file:lib</snapshot.repo>
         <release.repo>file:release</release.repo>
+	<maven.javadoc.skip>false</maven.javadoc.skip>
     </properties>
     <build>
         <defaultGoal>deploy</defaultGoal>
+	<pluginManagement>
+	    <plugins>
+		<plugin>
+		    <groupId>org.apache.maven.plugins</groupId>
+		    <artifactId>maven-jar-plugin</artifactId>
+		    <version>3.0.2</version>
+		</plugin>
+	    </plugins>
+	</pluginManagement>
     </build>
     <distributionManagement>
         <downloadUrl>https://github.com/mjschnie/openmm-java-wrappers</downloadUrl>
