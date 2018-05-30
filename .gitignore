@@ -13,6 +13,7 @@ catalog.xml
 .classpath
 .project
 
+release/
 keystore/
 target/
 .settings/
