@@ -9,7 +9,7 @@
 
 -mode Jar
 
--jar openmm-7.2.2.jar
+-jar openmm.jar
 
 -package simtk.openmm
 

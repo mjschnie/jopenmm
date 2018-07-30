@@ -873,6 +873,8 @@ public class OpenMMLibrary implements Library {
 	public static native void OpenMM_CustomCVForce_getCollectiveVariableValues(PointerByReference target, PointerByReference context, PointerByReference values);
 	/** Original signature : <code>OpenMM_Context* OpenMM_CustomCVForce_getInnerContext(OpenMM_CustomCVForce*, OpenMM_Context*)</code> */
 	public static native PointerByReference OpenMM_CustomCVForce_getInnerContext(PointerByReference target, PointerByReference context);
+	/** Original signature : <code>void OpenMM_CustomCVForce_updateParametersInContext(OpenMM_CustomCVForce*, OpenMM_Context*)</code> */
+	public static native void OpenMM_CustomCVForce_updateParametersInContext(PointerByReference target, PointerByReference context);
 	/** Original signature : <code>OpenMM_Boolean OpenMM_CustomCVForce_usesPeriodicBoundaryConditions(const OpenMM_CustomCVForce*)</code> */
 	public static native int OpenMM_CustomCVForce_usesPeriodicBoundaryConditions(PointerByReference target);
 	/**
@@ -1890,6 +1892,12 @@ public class OpenMMLibrary implements Library {
 	public static native int OpenMM_NonbondedForce_getNumParticles(PointerByReference target);
 	/** Original signature : <code>int OpenMM_NonbondedForce_getNumExceptions(const OpenMM_NonbondedForce*)</code> */
 	public static native int OpenMM_NonbondedForce_getNumExceptions(PointerByReference target);
+	/** Original signature : <code>int OpenMM_NonbondedForce_getNumGlobalParameters(const OpenMM_NonbondedForce*)</code> */
+	public static native int OpenMM_NonbondedForce_getNumGlobalParameters(PointerByReference target);
+	/** Original signature : <code>int OpenMM_NonbondedForce_getNumParticleParameterOffsets(const OpenMM_NonbondedForce*)</code> */
+	public static native int OpenMM_NonbondedForce_getNumParticleParameterOffsets(PointerByReference target);
+	/** Original signature : <code>int OpenMM_NonbondedForce_getNumExceptionParameterOffsets(const OpenMM_NonbondedForce*)</code> */
+	public static native int OpenMM_NonbondedForce_getNumExceptionParameterOffsets(PointerByReference target);
 	/** Original signature : <code>OpenMM_NonbondedForce_NonbondedMethod OpenMM_NonbondedForce_getNonbondedMethod(const OpenMM_NonbondedForce*)</code> */
 	public static native int OpenMM_NonbondedForce_getNonbondedMethod(PointerByReference target);
 	/** Original signature : <code>void OpenMM_NonbondedForce_setNonbondedMethod(OpenMM_NonbondedForce*, OpenMM_NonbondedForce_NonbondedMethod)</code> */
@@ -1952,6 +1960,44 @@ public class OpenMMLibrary implements Library {
 	public static native void OpenMM_NonbondedForce_setExceptionParameters(PointerByReference target, int index, int particle1, int particle2, double chargeProd, double sigma, double epsilon);
 	/** Original signature : <code>void OpenMM_NonbondedForce_createExceptionsFromBonds(OpenMM_NonbondedForce*, const OpenMM_BondArray*, double, double)</code> */
 	public static native void OpenMM_NonbondedForce_createExceptionsFromBonds(PointerByReference target, PointerByReference bonds, double coulomb14Scale, double lj14Scale);
+	/** Original signature : <code>int OpenMM_NonbondedForce_addGlobalParameter(OpenMM_NonbondedForce*, const char*, double)</code> */
+	public static native int OpenMM_NonbondedForce_addGlobalParameter(PointerByReference target, String name, double defaultValue);
+	/** Original signature : <code>int OpenMM_NonbondedForce_addGlobalParameter(OpenMM_NonbondedForce*, const char*, double)</code> */
+	public static native int OpenMM_NonbondedForce_addGlobalParameter(PointerByReference target, Pointer name, double defaultValue);
+	/** Original signature : <code>char* OpenMM_NonbondedForce_getGlobalParameterName(const OpenMM_NonbondedForce*, int)</code> */
+	public static native Pointer OpenMM_NonbondedForce_getGlobalParameterName(PointerByReference target, int index);
+	/** Original signature : <code>void OpenMM_NonbondedForce_setGlobalParameterName(OpenMM_NonbondedForce*, int, const char*)</code> */
+	public static native void OpenMM_NonbondedForce_setGlobalParameterName(PointerByReference target, int index, String name);
+	/** Original signature : <code>void OpenMM_NonbondedForce_setGlobalParameterName(OpenMM_NonbondedForce*, int, const char*)</code> */
+	public static native void OpenMM_NonbondedForce_setGlobalParameterName(PointerByReference target, int index, Pointer name);
+	/** Original signature : <code>double OpenMM_NonbondedForce_getGlobalParameterDefaultValue(const OpenMM_NonbondedForce*, int)</code> */
+	public static native double OpenMM_NonbondedForce_getGlobalParameterDefaultValue(PointerByReference target, int index);
+	/** Original signature : <code>void OpenMM_NonbondedForce_setGlobalParameterDefaultValue(OpenMM_NonbondedForce*, int, double)</code> */
+	public static native void OpenMM_NonbondedForce_setGlobalParameterDefaultValue(PointerByReference target, int index, double defaultValue);
+	/** Original signature : <code>int OpenMM_NonbondedForce_addParticleParameterOffset(OpenMM_NonbondedForce*, const char*, int, double, double, double)</code> */
+	public static native int OpenMM_NonbondedForce_addParticleParameterOffset(PointerByReference target, String parameter, int particleIndex, double chargeScale, double sigmaScale, double epsilonScale);
+	/** Original signature : <code>int OpenMM_NonbondedForce_addParticleParameterOffset(OpenMM_NonbondedForce*, const char*, int, double, double, double)</code> */
+	public static native int OpenMM_NonbondedForce_addParticleParameterOffset(PointerByReference target, Pointer parameter, int particleIndex, double chargeScale, double sigmaScale, double epsilonScale);
+	/** Original signature : <code>void OpenMM_NonbondedForce_getParticleParameterOffset(const OpenMM_NonbondedForce*, int, char**, int*, double*, double*, double*)</code> */
+	public static native void OpenMM_NonbondedForce_getParticleParameterOffset(PointerByReference target, int index, PointerByReference parameter, IntBuffer particleIndex, DoubleBuffer chargeScale, DoubleBuffer sigmaScale, DoubleBuffer epsilonScale);
+	/** Original signature : <code>void OpenMM_NonbondedForce_getParticleParameterOffset(const OpenMM_NonbondedForce*, int, char**, int*, double*, double*, double*)</code> */
+	public static native void OpenMM_NonbondedForce_getParticleParameterOffset(PointerByReference target, int index, PointerByReference parameter, IntByReference particleIndex, DoubleByReference chargeScale, DoubleByReference sigmaScale, DoubleByReference epsilonScale);
+	/** Original signature : <code>void OpenMM_NonbondedForce_setParticleParameterOffset(OpenMM_NonbondedForce*, int, const char*, int, double, double, double)</code> */
+	public static native void OpenMM_NonbondedForce_setParticleParameterOffset(PointerByReference target, int index, String parameter, int particleIndex, double chargeScale, double sigmaScale, double epsilonScale);
+	/** Original signature : <code>void OpenMM_NonbondedForce_setParticleParameterOffset(OpenMM_NonbondedForce*, int, const char*, int, double, double, double)</code> */
+	public static native void OpenMM_NonbondedForce_setParticleParameterOffset(PointerByReference target, int index, Pointer parameter, int particleIndex, double chargeScale, double sigmaScale, double epsilonScale);
+	/** Original signature : <code>int OpenMM_NonbondedForce_addExceptionParameterOffset(OpenMM_NonbondedForce*, const char*, int, double, double, double)</code> */
+	public static native int OpenMM_NonbondedForce_addExceptionParameterOffset(PointerByReference target, String parameter, int exceptionIndex, double chargeProdScale, double sigmaScale, double epsilonScale);
+	/** Original signature : <code>int OpenMM_NonbondedForce_addExceptionParameterOffset(OpenMM_NonbondedForce*, const char*, int, double, double, double)</code> */
+	public static native int OpenMM_NonbondedForce_addExceptionParameterOffset(PointerByReference target, Pointer parameter, int exceptionIndex, double chargeProdScale, double sigmaScale, double epsilonScale);
+	/** Original signature : <code>void OpenMM_NonbondedForce_getExceptionParameterOffset(const OpenMM_NonbondedForce*, int, char**, int*, double*, double*, double*)</code> */
+	public static native void OpenMM_NonbondedForce_getExceptionParameterOffset(PointerByReference target, int index, PointerByReference parameter, IntBuffer exceptionIndex, DoubleBuffer chargeProdScale, DoubleBuffer sigmaScale, DoubleBuffer epsilonScale);
+	/** Original signature : <code>void OpenMM_NonbondedForce_getExceptionParameterOffset(const OpenMM_NonbondedForce*, int, char**, int*, double*, double*, double*)</code> */
+	public static native void OpenMM_NonbondedForce_getExceptionParameterOffset(PointerByReference target, int index, PointerByReference parameter, IntByReference exceptionIndex, DoubleByReference chargeProdScale, DoubleByReference sigmaScale, DoubleByReference epsilonScale);
+	/** Original signature : <code>void OpenMM_NonbondedForce_setExceptionParameterOffset(OpenMM_NonbondedForce*, int, const char*, int, double, double, double)</code> */
+	public static native void OpenMM_NonbondedForce_setExceptionParameterOffset(PointerByReference target, int index, String parameter, int exceptionIndex, double chargeProdScale, double sigmaScale, double epsilonScale);
+	/** Original signature : <code>void OpenMM_NonbondedForce_setExceptionParameterOffset(OpenMM_NonbondedForce*, int, const char*, int, double, double, double)</code> */
+	public static native void OpenMM_NonbondedForce_setExceptionParameterOffset(PointerByReference target, int index, Pointer parameter, int exceptionIndex, double chargeProdScale, double sigmaScale, double epsilonScale);
 	/** Original signature : <code>OpenMM_Boolean OpenMM_NonbondedForce_getUseDispersionCorrection(const OpenMM_NonbondedForce*)</code> */
 	public static native int OpenMM_NonbondedForce_getUseDispersionCorrection(PointerByReference target);
 	/** Original signature : <code>void OpenMM_NonbondedForce_setUseDispersionCorrection(OpenMM_NonbondedForce*, OpenMM_Boolean)</code> */
@@ -2079,6 +2125,25 @@ public class OpenMMLibrary implements Library {
 	public static native void OpenMM_RBTorsionForce_setUsesPeriodicBoundaryConditions(PointerByReference target, int periodic);
 	/** Original signature : <code>OpenMM_Boolean OpenMM_RBTorsionForce_usesPeriodicBoundaryConditions(const OpenMM_RBTorsionForce*)</code> */
 	public static native int OpenMM_RBTorsionForce_usesPeriodicBoundaryConditions(PointerByReference target);
+	/**
+	 * RMSDForce<br>
+	 * Original signature : <code>OpenMM_RMSDForce* OpenMM_RMSDForce_create(const OpenMM_Vec3Array*, const OpenMM_IntArray*)</code>
+	 */
+	public static native PointerByReference OpenMM_RMSDForce_create(PointerByReference referencePositions, PointerByReference particles);
+	/** Original signature : <code>void OpenMM_RMSDForce_destroy(OpenMM_RMSDForce*)</code> */
+	public static native void OpenMM_RMSDForce_destroy(PointerByReference target);
+	/** Original signature : <code>OpenMM_Vec3Array* OpenMM_RMSDForce_getReferencePositions(const OpenMM_RMSDForce*)</code> */
+	public static native PointerByReference OpenMM_RMSDForce_getReferencePositions(PointerByReference target);
+	/** Original signature : <code>void OpenMM_RMSDForce_setReferencePositions(OpenMM_RMSDForce*, const OpenMM_Vec3Array*)</code> */
+	public static native void OpenMM_RMSDForce_setReferencePositions(PointerByReference target, PointerByReference positions);
+	/** Original signature : <code>OpenMM_IntArray* OpenMM_RMSDForce_getParticles(const OpenMM_RMSDForce*)</code> */
+	public static native PointerByReference OpenMM_RMSDForce_getParticles(PointerByReference target);
+	/** Original signature : <code>void OpenMM_RMSDForce_setParticles(OpenMM_RMSDForce*, const OpenMM_IntArray*)</code> */
+	public static native void OpenMM_RMSDForce_setParticles(PointerByReference target, PointerByReference particles);
+	/** Original signature : <code>void OpenMM_RMSDForce_updateParametersInContext(OpenMM_RMSDForce*, OpenMM_Context*)</code> */
+	public static native void OpenMM_RMSDForce_updateParametersInContext(PointerByReference target, PointerByReference context);
+	/** Original signature : <code>OpenMM_Boolean OpenMM_RMSDForce_usesPeriodicBoundaryConditions(const OpenMM_RMSDForce*)</code> */
+	public static native int OpenMM_RMSDForce_usesPeriodicBoundaryConditions(PointerByReference target);
 	/** Original signature : <code>OpenMM_State* OpenMM_State_create()</code> */
 	public static native PointerByReference OpenMM_State_create();
 	/** Original signature : <code>void OpenMM_State_destroy(OpenMM_State*)</code> */
@@ -2378,6 +2443,14 @@ public class OpenMMLibrary implements Library {
 			super(address);
 		}
 		public OpenMM_Continuous3DFunction() {
+			super();
+		}
+	};
+	public static class OpenMM_RMSDForce extends PointerType {
+		public OpenMM_RMSDForce(Pointer address) {
+			super(address);
+		}
+		public OpenMM_RMSDForce() {
 			super();
 		}
 	};
