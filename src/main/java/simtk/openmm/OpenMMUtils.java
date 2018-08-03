@@ -13,10 +13,19 @@ import java.util.jar.JarFile;
 
 public class OpenMMUtils {
 
+    private static boolean init = false;
+
     public static String JNA_LIBRARY_PATH = "";
     public static String OPENMM_PLUGIN_DIR = "";
 
     public synchronized static void init() {
+
+        if (init) {
+            return;
+        }
+
+        init = true;
+
         try {
             JarFile jarFile = jarForClass(simtk.openmm.OpenMMLibrary.class, null);
 
@@ -51,7 +60,7 @@ public class OpenMMUtils {
         }
     }
 
-    public static JarFile jarForClass(Class<?> clazz, JarFile defaultJar) {
+    private static JarFile jarForClass(Class<?> clazz, JarFile defaultJar) {
         String path = "/" + clazz.getName().replace('.', '/') + ".class";
         URL jarUrl = clazz.getResource(path);
         if (jarUrl == null) {
@@ -72,7 +81,7 @@ public class OpenMMUtils {
         }
     }
 
-    public static void copyResourcesToDirectory(JarFile fromJar, String jarDir, String destDir)
+    private static void copyResourcesToDirectory(JarFile fromJar, String jarDir, String destDir)
             throws java.io.IOException {
         for (Enumeration<JarEntry> entries = fromJar.entries(); entries.hasMoreElements(); ) {
             JarEntry entry = entries.nextElement();
