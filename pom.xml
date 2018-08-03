@@ -5,7 +5,7 @@
          http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>simtk</groupId>
-    <artifactId>openmm</artifactId>
+    <artifactId>openmm-fat</artifactId>
     <version>7.3.0</version>
     <packaging>jar</packaging>
     <name>OpenMM Java Wrappers</name>
@@ -19,25 +19,43 @@
     </dependencies>
     <properties>
         <jna.version>4.1.0</jna.version>
+        <jar.version>3.1.0</jar.version>
+        <compiler.version>3.8.0</compiler.version>
         <!-- Default locations for deploying the website, snapshot location and
         release location. These can be over-ridden by a developer's
         settings.xml -->
         <website.repo>file:website</website.repo>
         <snapshot.repo>file:lib</snapshot.repo>
         <release.repo>file:release</release.repo>
-	<maven.javadoc.skip>false</maven.javadoc.skip>
+        <maven.javadoc.skip>false</maven.javadoc.skip>
     </properties>
     <build>
         <defaultGoal>deploy</defaultGoal>
-	<pluginManagement>
-	    <plugins>
-		<plugin>
-		    <groupId>org.apache.maven.plugins</groupId>
-		    <artifactId>maven-jar-plugin</artifactId>
-		    <version>3.0.2</version>
-		</plugin>
-	    </plugins>
-	</pluginManagement>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${jar.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${compiler.version}</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${jar.version}</version>
+            </plugin>
+        </plugins>
     </build>
     <distributionManagement>
         <downloadUrl>https://github.com/mjschnie/openmm-java-wrappers</downloadUrl>
