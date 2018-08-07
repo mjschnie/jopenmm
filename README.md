@@ -7,7 +7,7 @@ Email: hernan-bernabe@uiowa.edu
 ## Introduction	
 This project contains Java Wrappers for the OpenMM C API, which are automatically generated using Jnaerator.
 
-## Generation of the Java Wrappers for OpenMM using Jnaerator
+## Generation of the Java OpenMM Wrappers using Jnaerator
 
 Ensure that the latest version of OpenMM is installed on your machine. This can be done, for example, by using the Anaconda command: 
 
@@ -57,13 +57,13 @@ The configuration file contains the various flags needed to set up generation of
 For additional documentation on flag options available to edit the configuration file visit Jnaerator Wiki:
 https://github.com/nativelibs4java/JNAerator/wiki/Command-Line-Options-And-Environment-Variables
 
-## Environment Variable Set Up
+## Using the JOpenMM Library
 
-To use the OpenMM Java Wrappers, please first initialize the library using the OpenMMUtils class:
+To use the Java OpenMM Wrappers, please first initialize the library using the OpenMMUtils class:
 	
       OpenMMUtils.init();
 
-This will extract the OpenMM binary libraries from the openmm-fat.jar file to a temporary directory and configure JNA to find them. To use OpenMM plugins, please instruct OpenMM to load them as follows:
+This will extract the OpenMM binary libraries from the openmm-fat.jar file to a temporary directory and configure JNA to find them. OpenMM plugins can be loaded from the directory OpenMMUtils.OPENMM_PLUGIN_DIR as follows:
 
       PointerByReference plugins = OpenMM_Platform_loadPluginsFromDirectory(OpenMMUtils.OPENMM_PLUGIN_DIR);
 
