@@ -1,4 +1,4 @@
-package simtk.openmm;
+package edu.uiowa.jopenmm;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -27,7 +27,7 @@ public class OpenMMUtils {
         init = true;
 
         try {
-            JarFile jarFile = jarForClass(simtk.openmm.OpenMMLibrary.class, null);
+            JarFile jarFile = jarForClass(edu.uiowa.jopenmm.OpenMMLibrary.class, null);
 
             String os;
             if (com.sun.jna.Platform.isMac()) {

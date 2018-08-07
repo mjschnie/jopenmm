@@ -1,4 +1,4 @@
-package simtk.openmm;
+package edu.uiowa.jopenmm;
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 import com.sun.jna.NativeLibrary;

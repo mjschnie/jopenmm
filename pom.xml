@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
          http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>simtk</groupId>
-    <artifactId>openmm-fat</artifactId>
+    <groupId>edu.uiowa.jopenmm</groupId>
+    <artifactId>jopenmm-fat</artifactId>
     <version>7.3.0</version>
     <packaging>jar</packaging>
-    <name>OpenMM Java Wrappers</name>
+    <name>Java Wrappers for OpenMM</name>
     <description>Java wrappers for the OpenMM API.</description>
     <dependencies>
         <dependency>
@@ -58,7 +58,7 @@
         </plugins>
     </build>
     <distributionManagement>
-        <downloadUrl>https://github.com/mjschnie/openmm-java-wrappers</downloadUrl>
+        <downloadUrl>https://github.com/mjschnie/jopenmm</downloadUrl>
         <site>
             <id>Website</id>
             <name>Java OpenMM Wrapper Website Location</name>

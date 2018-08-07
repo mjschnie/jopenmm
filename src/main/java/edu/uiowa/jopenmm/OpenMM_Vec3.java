@@ -1,4 +1,4 @@
-package simtk.openmm;
+package edu.uiowa.jopenmm;
 import com.sun.jna.Pointer;
 import com.sun.jna.Structure;
 import java.util.Arrays;

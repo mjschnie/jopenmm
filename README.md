@@ -18,7 +18,6 @@ The following Jnaerator command can then be used:
 
 	java -jar jnaerator-0.12-shaded.jar config.jnaerator
 
-
 where the contents of "config.jnaerator" are given by:
 
 	-limitComments
@@ -31,9 +30,9 @@ where the contents of "config.jnaerator" are given by:
 
 	-mode Jar
 
-	-jar openmm-7.3.0.jar
+	-jar openmm.jar
 
-	-package simtk.openMM
+	-package edu.uiowa.jopenmm
 
 	-library OpenMM
 	../include/OpenMMCWrapper.h
@@ -41,7 +40,7 @@ where the contents of "config.jnaerator" are given by:
 	-library AmoebaOpenMM
 	../include/AmoebaOpenMMCWrapper.h
 
-The configuration file contains the various flags needed to set up generation of the wrappers as well as information about where to locate the OpenMM X header files. Some Important flags include:
+The configuration file contains the various flags needed to set up generation of the wrappers as well as information about where to locate the OpenMM header files. Some Important flags include:
 
 * -runtime sets the runtime library that will be used to generate the wrapper classes, in this case JNA
 
@@ -60,12 +59,11 @@ https://github.com/nativelibs4java/JNAerator/wiki/Command-Line-Options-And-Envir
 
 ## Environment Variable Set Up
 
-To use the OpenMM Java Wrappers, two environment variables need to be set (e.g. in .bash_profile) in order to invoke the OpenMM libraries from within the Java program. First, the JNA_LIBRARY_PATH variable needs to point to the location of the lib subdirectory of the OpenMM installation package:
-
-	export JNA_LIBRARY_PATH="/Applications/anaconda3/pkgs/openmm-7.3.0-py36_1/lib"
-
-Second, the OPENMM_PLUGIN_DIR variable needs to point to the location of the plugins subdirectory of the OpenMM installation package:
-
-	export OPENMM_PLUGINS_DIR="/Applications/anaconda3/pkgs/openmm-7.3.0-py36_1/lib/plugins"
+To use the OpenMM Java Wrappers, please first initialize the library using the OpenMMUtils class:
 	
+      OpenMMUtils.init();
+
+This will extract the OpenMM binary libraries from the openmm-fat.jar file to a temporary directory and configure JNA to find them. To use OpenMM plugins, please instruct OpenMM to load them as follows:
+
+      PointerByReference plugins = OpenMM_Platform_loadPluginsFromDirectory(OpenMMUtils.OPENMM_PLUGIN_DIR);
 

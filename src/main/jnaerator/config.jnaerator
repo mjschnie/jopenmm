@@ -11,7 +11,7 @@
 
 -jar openmm.jar
 
--package simtk.openmm
+-package edu.uiowa.jopenmm
 
 -library OpenMM
 
