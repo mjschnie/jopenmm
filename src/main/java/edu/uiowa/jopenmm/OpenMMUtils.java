@@ -11,13 +11,24 @@ import java.util.Enumeration;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+/**
+ * <p>OpenMMUtils class.</p>
+ *
+ * @author mjschnie
+ * @version $Id: $Id
+ */
 public class OpenMMUtils {
 
     private static boolean init = false;
 
+    /** Constant <code>JNA_LIBRARY_PATH=""</code> */
     public static String JNA_LIBRARY_PATH = "";
+    /** Constant <code>OPENMM_PLUGIN_DIR=""</code> */
     public static String OPENMM_PLUGIN_DIR = "";
 
+    /**
+     * <p>init.</p>
+     */
     public synchronized static void init() {
 
         if (init) {
