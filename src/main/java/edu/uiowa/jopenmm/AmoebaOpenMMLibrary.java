@@ -15,8 +15,7 @@ import java.nio.IntBuffer;
  * a tool written by <a href="http://ochafik.com/">Olivier Chafik</a> that <a href="http://code.google.com/p/jnaerator/wiki/CreditsAndLicense">uses a few opensource projects.</a>.<br>
  * For help, please visit <a href="http://nativelibs4java.googlecode.com/">NativeLibs4Java</a> , <a href="http://rococoa.dev.java.net/">Rococoa</a>, or <a href="http://jna.dev.java.net/">JNA</a>.
  *
- * @author mjschnie
- * @version $Id: $Id
+ * @author Michael J. Schnieders
  */
 public class AmoebaOpenMMLibrary implements Library {
 	// public static final String JNA_LIBRARY_NAME = "AmoebaOpenMM";

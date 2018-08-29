@@ -14,8 +14,7 @@ import java.util.jar.JarFile;
 /**
  * <p>OpenMMUtils class.</p>
  *
- * @author mjschnie
- * @version $Id: $Id
+ * @author Michael J. Schnieders
  */
 public class OpenMMUtils {
 
@@ -46,7 +45,7 @@ public class OpenMMUtils {
             } else if (com.sun.jna.Platform.isLinux()) {
                 os = "linux_x64";
             } else {
-                os = "windows";
+                os = "win_x64";
             }
 
             String directory = "lib/" + os;
