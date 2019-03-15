@@ -20,9 +20,13 @@ public class OpenMMUtils {
 
     private static boolean init = false;
 
-    /** Constant <code>JNA_LIBRARY_PATH=""</code> */
+    /**
+     * Constant <code>JNA_LIBRARY_PATH=""</code>
+     */
     public static String JNA_LIBRARY_PATH = "";
-    /** Constant <code>OPENMM_PLUGIN_DIR=""</code> */
+    /**
+     * Constant <code>OPENMM_PLUGIN_DIR=""</code>
+     */
     public static String OPENMM_PLUGIN_DIR = "";
 
     /**
