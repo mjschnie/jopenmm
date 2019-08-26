@@ -66,7 +66,7 @@ To use the Java OpenMM Wrappers, please first initialize the library using the O
 	
       OpenMMUtils.init();
 
-This will extract the OpenMM binary libraries from the openmm-fat.jar file to a temporary directory and configure JNA to find them. OpenMM plugins can be loaded from the directory OpenMMUtils.OPENMM_PLUGIN_DIR as follows:
+This will extract the OpenMM binary libraries from the openmm-fat.jar file to a temporary directory and configure JNA to find them. OpenMM plugins can be loaded as follows:
 
       PointerByReference plugins = OpenMM_Platform_loadPluginsFromDirectory(OpenMMUtils.OPENMM_PLUGIN_DIR);
 

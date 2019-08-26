@@ -23,11 +23,15 @@ public class OpenMMUtils {
     /**
      * Constant <code>JNA_LIBRARY_PATH=""</code>
      */
-    public static String JNA_LIBRARY_PATH = "";
+    private static String JNA_LIBRARY_PATH = "";
+    /**
+     * Constant <code>OPENMM_PLUGIN_LIB=""</code>
+     */
+    private static String OPENMM_LIB_DIR = "";
     /**
      * Constant <code>OPENMM_PLUGIN_DIR=""</code>
      */
-    public static String OPENMM_PLUGIN_DIR = "";
+    private static String OPENMM_PLUGIN_DIR = "";
 
     /**
      * <p>init.</p>
@@ -56,22 +60,42 @@ public class OpenMMUtils {
 
             Path path = Files.createTempDirectory("openmm");
             File toDir = path.toFile();
-            String toDirString = toDir.getAbsolutePath() + "/" + os;
+            OPENMM_LIB_DIR = toDir.getAbsolutePath() + "/" + os;
 
-            copyResourcesToDirectory(jarFile, directory, toDirString);
+            copyResourcesToDirectory(jarFile, directory, OPENMM_LIB_DIR);
 
             JNA_LIBRARY_PATH = System.getProperty("jna.library.path", "");
             if (!JNA_LIBRARY_PATH.equalsIgnoreCase("")) {
-                JNA_LIBRARY_PATH = toDirString + File.pathSeparator + JNA_LIBRARY_PATH;
+                JNA_LIBRARY_PATH = OPENMM_LIB_DIR + File.pathSeparator + JNA_LIBRARY_PATH;
             } else {
-                JNA_LIBRARY_PATH = toDirString;
+                JNA_LIBRARY_PATH = OPENMM_LIB_DIR;
             }
             System.setProperty("jna.library.path", JNA_LIBRARY_PATH);
 
-            OPENMM_PLUGIN_DIR = toDirString + "/plugins";
+            OPENMM_PLUGIN_DIR = OPENMM_LIB_DIR + "/plugins";
         } catch (Exception e) {
             System.err.println(" Exception configuring OpenMM: " + e.toString());
         }
+    }
+
+    /**
+     * Return the location of the temporary OpenMM lib directory. This will return null until
+     * the OpenMMUtils.init() method is called.
+     *
+     * @return The lib directory.
+     */
+    public static String getLibDirectory() {
+        return OPENMM_LIB_DIR;
+    }
+
+    /**
+     * Return the location of the temporary OpenMM plugin directory. This will return null until
+     * the OpenMMUtils.init() method is called.
+     *
+     * @return The plugin directory.
+     */
+    public static String getPluginDirectory() {
+        return OPENMM_PLUGIN_DIR;
     }
 
     private static JarFile jarForClass(Class<?> clazz, JarFile defaultJar) {

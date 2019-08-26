@@ -75,32 +75,27 @@
                     <a href="https://github.com/nativelibs4java/JNAerator/wiki/Command-Line-Options-And-Environment-Variables">JNAerator Wiki.</a>
                 </p>
             </subsection>
-            <subsection name="Environment Variable Set Up">
-                <p>
-                    To use the OpenMM Java wrappers, two environment variables need to be set (e.g. in .bash_profile)
-                    in order to invoke the OpenMM libraries from within a Java program.
-                    First, the JNA_LIBRARY_PATH variable needs to point to the location of the lib
-                    subdirectory of the OpenMM installation package.
-                </p>
-                <source>export JNA_LIBRARY_PATH="/Applications/anaconda3/pkgs/openmm-7.2.0-py36_3/lib"</source>
-                <p>
-                    Second, the OPENMM_PLUGIN_DIR variable needs to point to the location of the plugins subdirectory of
-                    of the OpenMM installation package. 
-                </p>
-                <source>export OPENMM_PLUGIN_DIR="/Applications/anaconda3/pkgs/openmm-7.2.0-py36_3/lib/plugins"</source>
-                <source>To Do.</source>
+            <subsection name="Including the Library in a Maven project.">
+                <source>
+                    <![CDATA[
+                <dependency>
+                    <groupId>edu.uiowa.jopenmm</groupId>
+                    <artifactId>jopenmm-fat</artifactId>
+                    <version>7.3.1</version>
+                </dependency>]]>
+                </source>
             </subsection>
-            <subsection name="Using FFX-OpenMM">
+            <subsection name="How the Library Works">
                 <p>
-                    There are a number of algorithms in the FFX package that can use OpenMM under the hood if the
-                    "platform" flag
-                    is set to OMM. An example of this can be seen below using the Energy script:
+                    To use the Java OpenMM Wrappers within Java, please first initialize the library using the provided
+                    OpenMMUtils class:
                 </p>
-                <source>ffxc -Dplatform=OMM Energy yourpdb.pdb</source>
+                <source>OpenMMUtils.init();</source>
                 <p>
-                    where yourpdb.pdb will be replaced with the name of the pdb structure you wish to run the
-                    algorithm on.
+                    This will extract the OpenMM binary libraries from the openmm-fat.jar file to a temporary directory
+                    and configure JNA to find them. OpenMM plugins can be loaded as follows:
                 </p>
+                <source>PointerByReference plugins = OpenMM_Platform_loadPluginsFromDirectory(OpenMMUtils.getPluginDirectory();</source>
             </subsection>
         </section>
     </body>
