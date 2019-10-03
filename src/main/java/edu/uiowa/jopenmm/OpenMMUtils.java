@@ -15,6 +15,7 @@ import java.util.jar.JarFile;
  * <p>OpenMMUtils class.</p>
  *
  * @author Michael J. Schnieders
+ * @version $Id: $Id
  */
 public class OpenMMUtils {
 
